@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { GeneroEnum } from './genero.enum';
+import { ContaEntity } from 'src/conta/conta.entity';
 
 @Entity({ name: 'clientes' })
 export class ClienteEntity {
@@ -25,4 +26,7 @@ export class ClienteEntity {
     nullable: true,
   })
   genero: GeneroEnum;
+
+  @OneToMany(() => ContaEntity, (conta) => conta.cliente)
+  contas: ContaEntity[]
 }
