@@ -1,6 +1,5 @@
-import { type } from 'os';
 import { ClienteEntity } from 'src/cliente/cliente.entity';
-import { Column, Double, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'contas' })
 export class ContaEntity {
@@ -20,5 +19,5 @@ export class ContaEntity {
   conta: string;
 
   @Column({type: 'float'})
-  saldo: Double;
+  saldo: Number;
 }
