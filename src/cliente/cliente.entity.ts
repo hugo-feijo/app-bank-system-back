@@ -1,6 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { GeneroEnum } from './genero.enum';
 import { ContaEntity } from 'src/conta/conta.entity';
+import { CartaoEntity } from 'src/cartao/cartao.entity';
 
 @Entity({ name: 'clientes' })
 export class ClienteEntity {
@@ -28,5 +29,8 @@ export class ClienteEntity {
   genero: GeneroEnum;
 
   @OneToMany(() => ContaEntity, (conta) => conta.cliente, {eager: true})
-  contas: ContaEntity[]
+  contas: ContaEntity[];
+
+  @OneToMany(() => CartaoEntity, (cartao) => cartao.cliente, {eager: true})
+  cartoes: CartaoEntity[]
 }

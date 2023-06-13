@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ContaEntity } from './conta.entity';
 import { ContaDto } from './conta-dto';
-import { ClienteService } from 'src/cliente/cliente.service';
 
 @Injectable()
 export class ContaService {
@@ -19,7 +18,7 @@ export class ContaService {
   async findById(id: string): Promise<ContaEntity> {
     const findOne = await this.contaRepository.findOne({ where: { id } });
     if (findOne == null) {
-      throw new NotFoundException(`Cliente não encontrado com o identificador ${id}`);
+      throw new NotFoundException(`Conta não encontrado com o identificador ${id}`);
     }
     return findOne;
   }
