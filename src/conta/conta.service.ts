@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ContaEntity } from './conta.entity';
@@ -37,5 +37,19 @@ export class ContaService {
   async update({ id, ...dto }: ContaDto) {
     await this.findById(id);
     return this.contaRepository.save({ id, ...dto });
+  }
+
+  validate(dto: ContaDto) {
+    if(dto.saldo < 0) {
+      throw new BadRequestException(
+        'Saldo precisa ser maior que 0',
+      );
+    }
+    
+    if(dto.conta != "" && dto.conta.includes("-")){  
+      throw new BadRequestException(
+        'Informe o digito da conta com um hífen, nesse formato 00000-00',
+      );
+    }
   }
 }

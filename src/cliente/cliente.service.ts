@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ClienteEntity } from './cliente.entity';
@@ -30,12 +30,35 @@ export class ClienteService {
   }
 
   async create(dto: ClienteDto) {
+    this.validate(dto);
     const newAutor = this.autorRepository.create(dto);
     return this.autorRepository.save(newAutor);
   }
 
-  async update({ id, ...dto }: ClienteDto) {
-    await this.findById(id);
-    return this.autorRepository.save({ id, ...dto });
+  async update(dto: ClienteDto) {
+    await this.findById(dto.id);
+    this.validate(dto);
+    return this.autorRepository.save(dto);
+  }
+
+  validate(clienteDto: ClienteDto) {
+    if(clienteDto.nome != "" && clienteDto.nome.split(' ').filter(x => x).length < 2) {
+      throw new BadRequestException(
+        'Informe o nome completo',
+      );
+    }
+    
+    if(clienteDto.cpf != "" && !/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/.test(clienteDto.cpf)){  
+      throw new BadRequestException(
+        'Formato inválido de cpf, usar 000.000.000-00 ',
+      );
+    }
+
+    
+    if (new Date().getTime() < new Date(clienteDto.dataNascimento).getTime()) {
+      throw new BadRequestException(
+        'A data de nascimento não pode ser menor que a data atual',
+      );
+    }
   }
 }
