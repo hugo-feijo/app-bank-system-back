@@ -19,5 +19,5 @@ export class ContaEntity {
   conta: string;
 
   @Column({type: 'float'})
-  saldo: Number;
+  saldo: number;
 }

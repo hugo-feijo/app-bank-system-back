@@ -6,13 +6,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClienteModule } from './cliente/cliente.module';
 import { ContaModule } from './conta/conta.module';
 import { CartaoModule } from './cartao/cartao.module';
+import { HomeModule } from './home/home.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(dataSourceOptions),
     ClienteModule,
     ContaModule,
-    CartaoModule
+    CartaoModule,
+    HomeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
