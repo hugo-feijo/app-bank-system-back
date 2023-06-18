@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "9bdbe7e6-2363-4587-b7fd-8e25028c9bdb",
+		"name": "bank-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9547891"
+	},
+	"item": [
+		{
+			"name": "conta",
+			"item": [
+				{
+					"name": "Get All Contas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/contas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Conta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"instituicao\": \"Itau\",\r\n    \"agencia\": \"0001\",\r\n    \"conta\": \"54345\",\r\n    \"saldo\": 0.88,\r\n    \"cliente\": {\r\n        \"id\": \"5e556359-9fa9-4e04-9fde-9a3b810c1164\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/contas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Conta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"instituicao\": \"Itauuu\",\r\n    \"agencia\": \"0001\",\r\n    \"conta\": \"54345\",\r\n    \"saldo\": 0.88,\r\n    \"cliente\": {\r\n        \"id\": \"0b048faa-ac6b-4dc1-928b-08ab42fb3b07\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/contas/3e867fa2-d1aa-4e4f-bba2-ecb740ec199d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contas",
+								"3e867fa2-d1aa-4e4f-bba2-ecb740ec199d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Conta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/contas/fb8102e0-c7cf-462f-ae8d-688c41067e65",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contas",
+								"fb8102e0-c7cf-462f-ae8d-688c41067e65"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Conta By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/contas/ee9fe0c2-b271-4c05-a184-fcdfea63fde7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contas",
+								"ee9fe0c2-b271-4c05-a184-fcdfea63fde7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "home",
+			"item": [
+				{
+					"name": "Total Cartao",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/home/total-cartao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"home",
+								"total-cartao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Total Conta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/home/total-conta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"home",
+								"total-conta"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cartao",
+			"item": [
+				{
+					"name": "Get All Cartoes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cartoes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cartoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cartao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Itau\",\r\n    \"limite\": 7500,\r\n    \"valorProximaFatura\": 1265.78,\r\n    \"vencimentoFatura\": \"2024-06-15\",\r\n    \"diaFechamento\": 7,\r\n    \"cliente\": {\r\n        \"id\": \"3dfe759b-859f-4d2d-abc4-89879c441c9f\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cartoes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cartoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Cartao",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"C6 Bank\",\r\n    \"limite\": 7500,\r\n    \"valorProximaFatura\": 1265.78,\r\n    \"vencimentoFatura\": \"2023-06-15\",\r\n    \"diaFechamento\": 7,\r\n    \"cliente\": {\r\n        \"id\": \"5e556359-9fa9-4e04-9fde-9a3b810c1164\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cartoes/7cc1f909-d047-4a2f-b0d0-819fc4285321",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cartoes",
+								"7cc1f909-d047-4a2f-b0d0-819fc4285321"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cartao",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cartoes/4894b131-3ede-43bd-86e0-09ee1c92faae",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cartoes",
+								"4894b131-3ede-43bd-86e0-09ee1c92faae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cartao By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cartoes/7cc1f909-d047-4a2f-b0d0-819fc4285321",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cartoes",
+								"7cc1f909-d047-4a2f-b0d0-819fc4285321"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cliente",
+			"item": [
+				{
+					"name": "Get All Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Luana Machado\",\r\n    \"dataNascimento\": \"1996-02-07\",\r\n    \"cpf\": \"231.689.645-31\",\r\n    \"rg\": \"312834-327\",\r\n    \"genero\": \"F\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/clientes/b24d9ed5-62f0-4e83-8bec-74da4543d6a9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes",
+								"b24d9ed5-62f0-4e83-8bec-74da4543d6a9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Luana Bento\",\r\n    \"dataNascimento\": \"1996-02-07\",\r\n    \"cpf\": \"231.689.645-31\",\r\n    \"rg\": \"312834-32[7\",\r\n    \"genero\": \"F\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/clientes/cc0af625-8add-4006-bda5-3ac2784c65ae",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes",
+								"cc0af625-8add-4006-bda5-3ac2784c65ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cliente By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/clientes/0b048faa-ac6b-4dc1-928b-08ab42fb3b07",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes",
+								"0b048faa-ac6b-4dc1-928b-08ab42fb3b07"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

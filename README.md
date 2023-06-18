@@ -19,3 +19,4 @@ $ yarn typeorm-seed:run
 # application
 $ yarn start
 ```
+4. Usar collection do postmans presente na pasta collection para testar;
