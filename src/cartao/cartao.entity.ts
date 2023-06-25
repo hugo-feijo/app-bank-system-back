@@ -6,7 +6,7 @@ export class CartaoEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => ClienteEntity, (cliente) => cliente.contas, { cascade: true, onDelete: "CASCADE" })
+  @ManyToOne(() => ClienteEntity, (cliente) => cliente.contas, { cascade: true, onDelete: "CASCADE" , eager: true})
   cliente: ClienteEntity;
 
   @Column()

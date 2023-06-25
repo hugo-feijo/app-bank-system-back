@@ -28,9 +28,9 @@ export class ClienteEntity {
   })
   genero: GeneroEnum;
 
-  @OneToMany(() => ContaEntity, (conta) => conta.cliente, {eager: true})
+  @OneToMany(() => ContaEntity, (conta) => conta.cliente)
   contas: ContaEntity[];
 
-  @OneToMany(() => CartaoEntity, (cartao) => cartao.cliente, {eager: true})
+  @OneToMany(() => CartaoEntity, (cartao) => cartao.cliente)
   cartoes: CartaoEntity[]
 }
