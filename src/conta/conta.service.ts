@@ -30,13 +30,15 @@ export class ContaService {
   }
 
   async create(dto: ContaDto) {
+    this.validate(dto);
     const newAutor = this.contaRepository.create(dto);
     return this.contaRepository.save(newAutor);
   }
 
-  async update({ id, ...dto }: ContaDto) {
-    await this.findById(id);
-    return this.contaRepository.save({ id, ...dto });
+  async update(dto: ContaDto) {
+    this.validate(dto)
+    await this.findById(dto.id);
+    return this.contaRepository.save(dto);
   }
 
   validate(dto: ContaDto) {
