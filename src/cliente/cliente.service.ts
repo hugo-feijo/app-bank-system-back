@@ -57,7 +57,7 @@ export class ClienteService {
     
     if (new Date().getTime() < new Date(clienteDto.dataNascimento).getTime()) {
       throw new BadRequestException(
-        'A data de nascimento não pode ser menor que a data atual',
+        'A data de nascimento não pode ser maior que a data atual',
       );
     }
   }
